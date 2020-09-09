@@ -7,7 +7,7 @@ export const AddTransaction = () => {
 
     const { addTransaction, transactions } = useContext(GlobalContext)
 
-    const onSubmit = e => {
+    const onTransactionSubmit = e => {
         e.preventDefault();
 
         const newTransaction = {
@@ -26,7 +26,7 @@ export const AddTransaction = () => {
     return (
         <div className='new-transaction'>
             <h3>Add new transaction</h3>
-            <form onSubmit={onSubmit}>
+            <form onSubmit={onTransactionSubmit}>
                 <div className="form-control">
                 <label htmlFor="text">Text</label>
                 <input type="text" value={text} onChange={e => setText(e.target.value)} placeholder="Enter text..." />
