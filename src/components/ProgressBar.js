@@ -6,7 +6,7 @@ import Box from '@material-ui/core/Box';
 export const ProgressBar = (props) => {
 	return (
 		<Box position='relative' display='inline-flex'>
-			<CircularProgress variant='static' {...props} />
+			<CircularProgress variant='static' thickness={5} {...props} />
 			<Box
 				top={0}
 				left={0}

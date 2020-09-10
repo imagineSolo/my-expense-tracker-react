@@ -130,10 +130,6 @@ body {
 				flex-direction: row;
 				align-items: flex-end;
 
-				.form-control {
-					margin: 0 5px;
-				}
-
 				.btn-goal {
 					cursor: pointer;
 					background-color: $color-btn;
@@ -155,13 +151,26 @@ body {
 			.goal-progress {
 				display: flex;
 				align-items: center;
-				justify-content: center;
-			}
+				justify-content: space-between;
+				margin: 30px 10px;
 
-			.goal-progress div {
-				display: flex;
-				margin: 10px;
+				.goal-info {
+					display: flex;
+					flex-direction: column;
+				}
+
+				.goal-info>div {
+					padding: 10px 0;
+				}
+
+				.goal-info>div>span {
+					font-weight: bold;
+				}
 			}
+		}
+
+		.form-control {
+			margin: 0 5px;
 		}
 
 		label {

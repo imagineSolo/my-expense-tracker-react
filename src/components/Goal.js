@@ -55,8 +55,14 @@ export const Goal = () => {
 				<button className='btn-goal'>Add</button>
 			</form>
 			<div className='goal-progress'>
-				<div>Goal: {goal.text}</div>
-				<div>Amount to collect: {goal.amount} PLN</div>
+				<div className='goal-info'>
+					<div>
+						Current goal: <span>{goal.text}</span>
+					</div>
+					<div>
+						Amount to collect: <span>{goal.amount} PLN</span>
+					</div>
+				</div>
 				<ProgressBar value={percentage} size={80} />
 			</div>
 		</div>
