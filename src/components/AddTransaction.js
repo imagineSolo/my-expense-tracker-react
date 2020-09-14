@@ -26,6 +26,7 @@ export const AddTransaction = () => {
 			id: Math.floor(Math.random() * 100000000),
 			text,
 			amount: +amount,
+			date
 		};
 
 		addTransaction(newTransaction);
@@ -62,8 +63,8 @@ export const AddTransaction = () => {
 						<KeyboardDatePicker
 							margin='normal'
 							id='date-picker-dialog'
-							label='Date picker dialog'
-							format='MM/dd/yyyy'
+							label='Tansaction date'
+							format='dd/MM/yyyy'
 							value={date}
 							onChange={handleDateChange}
 							KeyboardButtonProps={{

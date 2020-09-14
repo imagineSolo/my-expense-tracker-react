@@ -20,11 +20,11 @@ export const Incomes = () => {
  <div className="inc-exp-container">
         <div>
           <h4>Income</h4>
-          <p className="money plus">{income} PLN</p>
+          <p className="money plus">+{income} PLN</p>
         </div>
         <div>
           <h4>Expense</h4>
-          <p className="money minus">{expense} PLN</p>
+          <p className="money minus">-{expense} PLN</p>
         </div>
       </div>
     )

@@ -7,6 +7,7 @@ import { Incomes } from './components/Incomes';
 import { Transactions } from './components/Transactions';
 import { AddTransaction } from './components/AddTransaction';
 import { Goal } from './components/Goal';
+import { Currency } from './components/Currency';
 
 import { GlobalProvider } from './context/GlobalState';
 
@@ -22,6 +23,7 @@ function App() {
         <Transactions />
         <AddTransaction />
         <Goal />
+      <Currency />
       </main>
     </GlobalProvider>
   );

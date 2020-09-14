@@ -96,7 +96,7 @@ body {
 
 		.new-transaction {
 			grid-column: 2 / 2;
-			grid-row: 1 / 1;
+			grid-row: 1 / -1;
 			padding: 5px;
 			margin: 0 20px;
 
@@ -175,7 +175,6 @@ body {
 
 		label {
 			display: inline-block;
-			margin: 10px 0;
 		}
 
 		input[type='text'],
