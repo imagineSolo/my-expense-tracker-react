@@ -3,14 +3,16 @@ import AppReducer from './AppReducer'
 
 const storedTransactions = JSON.parse(localStorage.getItem('transactions')) || [];
 const storedGoal = JSON.parse(localStorage.getItem('goal')) || [];
-const BASE_URL = 'https://api.exchangeratesapi.io/latest';
 
 const initialState = {
     transactions: storedTransactions,
     goal: storedGoal,
     currencies: [],
-    currentCurrency: "EUR"
+    currentCurrency: "PLN",
+    currentRate: 1,
 }
+
+const BASE_URL = `https://api.exchangeratesapi.io/latest?base=${initialState.currentCurrency}`;
 
 export const GlobalContext = createContext(initialState);
 
@@ -19,8 +21,12 @@ export const GlobalProvider = ({ children }) => {
 
     useEffect(() => {
         fetch(BASE_URL)
-        .then(response => response.json())
-        .then(data => fetchCurrencyRates([data.base, ...Object.keys(data.rates)]))
+					.then((response) => response.json())
+					.then((data) =>
+						fetchCurrencyRates([
+							...Object.entries(data.rates),
+						])
+					);
     }, [])
 
     function fetchCurrencyRates(data) {
@@ -30,12 +36,19 @@ export const GlobalProvider = ({ children }) => {
         })
     }
 
-    function setCurrency(event) {
+    function setCurrency(value) {
         dispatch({
             type: 'SET_CURRENCY',
-            payload: event
+            payload: value
         })
     }
+
+        function setRate(rate) {
+			dispatch({
+				type: 'SET_RATE',
+				payload: rate
+			});
+		}
 
     function deleteTransaction(id) {
         dispatch({
@@ -65,6 +78,7 @@ export const GlobalProvider = ({ children }) => {
         currentCurrency: state.currentCurrency,
         fetchCurrencyRates,
         setCurrency,
+        setRate,
         deleteTransaction,
         addTransaction,
         addGoal,

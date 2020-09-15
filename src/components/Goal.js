@@ -6,8 +6,7 @@ export const Goal = () => {
 	const [text, setText] = useState('');
 	const [amount, setAmount] = useState(0);
 
-	const { transactions } = useContext(GlobalContext);
-	const { addGoal, goal } = useContext(GlobalContext);
+	const { transactions, currentCurrency, addGoal, goal } = useContext(GlobalContext);
 
 	const onGoalSubmit = (e) => {
 		e.preventDefault();
@@ -60,7 +59,7 @@ export const Goal = () => {
 						Current goal: <span>{goal.text}</span>
 					</div>
 					<div>
-						Amount to collect: <span>{goal.amount} PLN</span>
+						Amount to collect: <span>{goal.amount} {currentCurrency}</span>
 					</div>
 				</div>
 				<ProgressBar value={percentage} size={80} />
