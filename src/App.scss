@@ -169,6 +169,25 @@ body {
 			}
 		}
 
+		.currency {
+			grid-column: 2 / 2;
+			grid-row: 2 / 2;
+			height: 25%;
+			background-color: #fff;
+			box-shadow: $base-shadow;
+			padding: 20px;
+			margin: 50px 20px;
+			display: flex;
+			justify-content: space-between;
+			border-top: 1px solid #dedede;
+
+			select {
+				border-radius: 10%;
+				width: 20%;
+				padding: 5x;
+			}
+		}
+
 		.form-control {
 			margin: 0 5px;
 		}

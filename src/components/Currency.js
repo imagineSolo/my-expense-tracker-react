@@ -6,17 +6,17 @@ export const Currency = () => {
 	const { currencies, currentCurrency, setCurrency, setRate } = useContext(GlobalContext);
 
     	const onCurrencySelect = (value, rate) => {
-			console.log(rate)
+			console.log(value, rate)
 			setCurrency(value);
 			setRate(rate)
 		};
 
     return (
-			<div>
+			<div className='currency'>
 				Current curency:
 				<select
 					onChange={(e) =>
-						onCurrencySelect(e.target.value, e.target.getAttribute("data-rate"))
+						onCurrencySelect(e.target.value, e.currentTarget.getAttribute("data-rate"))
 					}
 				>
 					{currencies.map((option) => (

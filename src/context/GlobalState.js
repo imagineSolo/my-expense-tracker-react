@@ -8,11 +8,13 @@ const initialState = {
     transactions: storedTransactions,
     goal: storedGoal,
     currencies: [],
-    currentCurrency: "PLN",
+    baseCurrency: "PLN",
+    baseRate: 1,
+    currentCurrency: 'PLN',
     currentRate: 1,
 }
 
-const BASE_URL = `https://api.exchangeratesapi.io/latest?base=${initialState.currentCurrency}`;
+const BASE_URL = `https://api.exchangeratesapi.io/latest?base=${initialState.baseCurrency}`;
 
 export const GlobalContext = createContext(initialState);
 
@@ -22,7 +24,7 @@ export const GlobalProvider = ({ children }) => {
     useEffect(() => {
         fetch(BASE_URL)
 					.then((response) => response.json())
-					.then((data) =>
+                    .then((data) =>
 						fetchCurrencyRates([
 							...Object.entries(data.rates),
 						])
@@ -75,6 +77,7 @@ export const GlobalProvider = ({ children }) => {
         transactions: state.transactions,
         goal: state.goal,
         currencies: state.currencies,
+        baseCurrency: state.baseCurrency,
         currentCurrency: state.currentCurrency,
         fetchCurrencyRates,
         setCurrency,
