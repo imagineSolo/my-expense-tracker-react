@@ -5,10 +5,13 @@ export const Currency = () => {
 
 	const { currencies, currentCurrency, setCurrency, setRate } = useContext(GlobalContext);
 
-    	const onCurrencySelect = (value, rate) => {
-			console.log(value, rate)
+    	const onCurrencySelect = (e) => {
+			const {value} = e.target;
+
+			const selected = currencies.filter(curr => curr[0] === value)
+
 			setCurrency(value);
-			setRate(rate)
+			setRate(selected[0][1])
 		};
 
     return (
@@ -16,15 +19,14 @@ export const Currency = () => {
 				Current curency:
 				<select
 					onChange={(e) =>
-						onCurrencySelect(e.target.value, e.currentTarget.getAttribute("data-rate"))
+						onCurrencySelect(e)
 					}
 				>
 					{currencies.map((option) => (
 						<option
 							key={option[1]}
-							data-rate={option[1]}
 							value={option[0]}
-							selected={option[0] === currentCurrency ? true : false}
+							selected={option[0] === currentCurrency}
 						>
 							{option[0]}
 						</option>

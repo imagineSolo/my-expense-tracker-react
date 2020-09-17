@@ -79,6 +79,7 @@ export const GlobalProvider = ({ children }) => {
         currencies: state.currencies,
         baseCurrency: state.baseCurrency,
         currentCurrency: state.currentCurrency,
+        currentRate: state.currentRate,
         fetchCurrencyRates,
         setCurrency,
         setRate,
