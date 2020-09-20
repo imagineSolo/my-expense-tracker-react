@@ -39,9 +39,9 @@ body {
 
 	.container {
 		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		grid-template-rows: repeat(2, 1fr);
-		margin: 30px 30px;
+		grid-template-columns: repeat(1, 1fr);
+		grid-template-rows: repeat(5, 1fr);
+		margin: 15px 15px;
 
 		.account {
 			grid-column: 1 / 1;
@@ -88,15 +88,15 @@ body {
 		}
 
 		.history {
-			grid-column: 3 / 3;
-			grid-row: 1 / -1;
+			grid-column: 1 / 1;
+			grid-row: 5 / -1;
 			padding: 5px;
 			margin: 0 20px;
 		}
 
 		.new-transaction {
-			grid-column: 2 / 2;
-			grid-row: 1 / -1;
+			grid-column: 1 / 1;
+			grid-row: 4 / 4;
 			padding: 5px;
 			margin: 0 20px;
 
@@ -170,8 +170,8 @@ body {
 		}
 
 		.currency {
-			grid-column: 2 / 2;
-			grid-row: 2 / 2;
+			grid-column: 1 / 1;
+			grid-row: 3 / 3;
 			height: 25%;
 			background-color: #fff;
 			box-shadow: $base-shadow;
@@ -206,12 +206,6 @@ body {
 			width: 100%;
 		}
 
-		.btn-new:focus,
-		.btn-goal:focus,
-		.delete-btn:focus {
-			outline: 0;
-		}
-
 		.list {
 			list-style-type: none;
 			padding: 0;
@@ -222,8 +216,8 @@ body {
 			background-color: #fff;
 			box-shadow: $base-shadow;
 			color: #333;
-			display: flex;
-			justify-content: space-between;
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
 			position: relative;
 			padding: 10px;
 			margin: 10px 0;
@@ -249,12 +243,60 @@ body {
 			top: 50%;
 			left: 0;
 			transform: translate(-100%, -50%);
-			opacity: 0;
+			opacity: 1;
 			transition: opacity 0.3s ease;
 		}
+	}
+}
 
-		.list li:hover .delete-btn {
-			opacity: 1;
+@media only screen and (min-width: 850px) {
+
+	body {
+
+		.container {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			grid-template-rows: repeat(2, 1fr);
+			margin: 30px 30px;
+
+			.account {
+				grid-column: 1 / 1;
+				grid-row: 1 / 1;
+			}
+
+			.history {
+				grid-column: 3 / 3;
+				grid-row: 1 / -1;
+			}
+
+			.new-transaction {
+				grid-column: 2 / 2;
+				grid-row: 1 / 1;
+			}
+
+			.goal {
+				grid-column: 1 / 1;
+				grid-row: 2 / 2;
+			}
+
+			.currency {
+				grid-column: 2 / 2;
+				grid-row: 2 / 2;
+			}
+
+			.btn-new:focus,
+			.btn-goal:focus,
+			.delete-btn:focus {
+				outline: 0;
+			}
+
+			.delete-btn {
+				opacity: 0;
+			}
+
+			.list li:hover .delete-btn {
+				opacity: 1;
+			}
 		}
 	}
 }

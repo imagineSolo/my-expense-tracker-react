@@ -18,6 +18,7 @@ export const Currency = () => {
 			<div className='currency'>
 				Current curency:
 				<select
+					value={currentCurrency}
 					onChange={(e) =>
 						onCurrencySelect(e)
 					}
@@ -26,7 +27,6 @@ export const Currency = () => {
 						<option
 							key={option[1]}
 							value={option[0]}
-							selected={option[0] === currentCurrency}
 						>
 							{option[0]}
 						</option>
