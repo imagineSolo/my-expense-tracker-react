@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { GlobalContext } from '../context/GlobalState';
 import { ProgressBar } from './ProgressBar';
+import { Message } from './Message'
 
 export const Goal = () => {
 	const [text, setText] = useState('');
@@ -64,6 +65,7 @@ export const Goal = () => {
 				</div>
 				<ProgressBar value={percentage} size={80} />
 			</div>
+			{<Message percentage={percentage}/>}
 		</div>
 	);
 };
