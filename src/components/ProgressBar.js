@@ -21,7 +21,7 @@ export const ProgressBar = (props) => {
 					variant='h6'
 					component='div'
 					color='textSecondary'
-					value=""
+					value={props.value}
 				>{Math.round(props.value)}%</Typography>
 			</Box>
 		</Box>

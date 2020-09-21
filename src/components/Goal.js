@@ -28,7 +28,9 @@ export const Goal = () => {
 
 	const total = amounts.reduce((acc, item) => (acc += item), 0);
 
-	const percentage = ((total / goal.amount) * 100).toFixed(2);
+	const percentage = parseFloat(((total / goal.amount) * 100).toFixed(2));
+
+	const amountToCollect = parseFloat((goal.amount * currentRate).toFixed(2));
 
 	return (
 		<div className='goal'>
@@ -60,12 +62,12 @@ export const Goal = () => {
 						Current goal: <span>{goal.text}</span>
 					</div>
 					<div>
-						Amount to collect: <span>{(goal.amount * currentRate).toFixed(2)} {currentCurrency}</span>
+						Amount to collect: <span>{amountToCollect > 0 ? amountToCollect : 0} {currentCurrency}</span>
 					</div>
 				</div>
-				<ProgressBar value={percentage} size={80} />
+				<ProgressBar value={percentage > 0 ? percentage : 0} size={80} amount={amount}/>
 			</div>
-			{<Message percentage={percentage}/>}
+			{<Message percentage={percentage} amount={amount}/>}
 		</div>
 	);
 };

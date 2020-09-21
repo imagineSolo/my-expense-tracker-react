@@ -24,8 +24,6 @@ export const Message = (props) => {
 
 	const { percentage } = props;
 
-	console.log(props);
-
 	useEffect(() => {
 		percentage >= 100 ? setShow(0) : setShow(-100);
 		setTimeout(() => {
@@ -33,5 +31,6 @@ export const Message = (props) => {
 		}, 3000);
 	}, [percentage]);
 
-	return <Popup show={show}>Congrats! The goal is funded!</Popup>;
+	return percentage >= 100 ? <Popup show={show}>Congrats! The goal is funded!</Popup> : null
+	;
 };

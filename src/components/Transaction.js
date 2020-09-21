@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { GlobalContext } from '../context/GlobalState'
+import { ReactComponent as DeleteIcon } from '../icons/trash.svg'
 
 export const Transaction = ({ transaction }) => {
     const { deleteTransaction, currentCurrency, currentRate } = useContext(GlobalContext);
@@ -13,7 +14,7 @@ export const Transaction = ({ transaction }) => {
 					onClick={() => deleteTransaction(transaction.id)}
 					className='delete-btn'
 				>
-					x
+					<DeleteIcon className='delete-icon'/>
 				</button>
 			</li>
 		);

@@ -2,7 +2,7 @@ import React, { createContext, useReducer, useEffect } from 'react';
 import AppReducer from './AppReducer'
 
 const storedTransactions = JSON.parse(localStorage.getItem('transactions')) || [];
-const storedGoal = JSON.parse(localStorage.getItem('goal')) || [];
+const storedGoal = JSON.parse(localStorage.getItem('goal')) || 0;
 
 const initialState = {
     transactions: storedTransactions,
