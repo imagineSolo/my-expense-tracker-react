@@ -10,7 +10,7 @@ import {
 
 export const AddTransaction = () => {
 	const [text, setText] = useState('');
-	const [amount, setAmount] = useState(0);
+	const [amount, setAmount] = useState('');
 	const [date, setDate] = useState(new Date());
 
 	const { addTransaction, transactions } = useContext(GlobalContext);
@@ -22,14 +22,20 @@ export const AddTransaction = () => {
 	const onTransactionSubmit = (e) => {
 		e.preventDefault();
 
-		const newTransaction = {
-			id: Math.floor(Math.random() * 100000000),
-			text,
-			amount: +amount,
-			date
-		};
+		// eslint-disable-next-line eqeqeq
+		if (amount == 0) {
+			return
+		} else {
+			const newTransaction = {
+				id: Math.floor(Math.random() * 100000000),
+				text,
+				amount: +amount,
+				date,
+			};
 
-		addTransaction(newTransaction);
+			addTransaction(newTransaction);
+		}
+
 	};
 
 	useEffect(() => {
@@ -48,6 +54,7 @@ export const AddTransaction = () => {
 							value={text}
 							onChange={(e) => setText(e.target.value)}
 							placeholder='Enter text...'
+							required
 						/>
 					</div>
 					<div className='form-control'>
@@ -57,6 +64,7 @@ export const AddTransaction = () => {
 							value={amount}
 							onChange={(e) => setAmount(e.target.value)}
 							placeholder='Enter amount...'
+							required
 						/>
 					</div>
 					<div className='form-control'>

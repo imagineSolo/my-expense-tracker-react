@@ -46,6 +46,7 @@ body {
 		.account {
 			grid-column: 1 / 1;
 			grid-row: 1 / 1;
+			max-height: 40vh;
 
 			.balance {
 				background-color: #fff;
@@ -92,6 +93,10 @@ body {
 			grid-row: 5 / -1;
 			padding: 5px;
 			margin: 0 20px;
+			overflow-y: scroll;
+			scrollbar-color: #c4c4c4 #e4e4e4;
+			scrollbar-width: thin;
+			max-height: 40vh;
 		}
 
 		.new-transaction {
@@ -99,6 +104,7 @@ body {
 			grid-row: 4 / 4;
 			padding: 5px;
 			margin: 0 20px;
+			max-height: 50vh;
 
 			.btn-new {
 				cursor: pointer;
@@ -124,6 +130,7 @@ body {
 			padding: 15px;
 			background-color: #fff;
 			box-shadow: $base-shadow;
+			max-height: 40vh;
 
 			.goal-form {
 				display: flex;
@@ -180,6 +187,7 @@ body {
 			display: flex;
 			justify-content: space-between;
 			border-top: 1px solid #dedede;
+			max-height: 35vh;
 
 			select {
 				border-radius: 10%;
@@ -272,11 +280,16 @@ body {
 			.account {
 				grid-column: 1 / 1;
 				grid-row: 1 / 1;
+				max-height: 50vh;
 			}
 
 			.history {
 				grid-column: 3 / 3;
 				grid-row: 1 / -1;
+				overflow-y: scroll;
+				scrollbar-color: #c4c4c4 #e4e4e4;
+				scrollbar-width: thin;
+				max-height: 100vh;
 			}
 
 			.new-transaction {
@@ -307,6 +320,7 @@ body {
 
 			.list li:hover .delete-btn {
 				opacity: 1;
+				z-index: 999;
 			}
 		}
 	}

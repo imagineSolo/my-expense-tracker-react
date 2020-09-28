@@ -5,20 +5,23 @@ import { Message } from './Message'
 
 export const Goal = () => {
 	const [text, setText] = useState('');
-	const [amount, setAmount] = useState(0);
+	const [amount, setAmount] = useState('');
 
 	const { transactions, currentCurrency, currentRate, addGoal, goal } = useContext(GlobalContext);
 
 	const onGoalSubmit = (e) => {
 		e.preventDefault();
-
+		// eslint-disable-next-line eqeqeq
+		if (amount == 0) {
+			return
+		} else {
 		const newGoal = {
 			text,
 			amount: +amount,
 		};
 
 		addGoal(newGoal);
-	};
+	}};
 
 	useEffect(() => {
 		window.localStorage.setItem('goal', JSON.stringify(goal));
@@ -43,6 +46,7 @@ export const Goal = () => {
 						value={text}
 						onChange={(e) => setText(e.target.value)}
 						placeholder='Goal name...'
+						required
 					/>
 				</div>
 				<div className='form-control'>
@@ -52,6 +56,7 @@ export const Goal = () => {
 						value={amount}
 						onChange={(e) => setAmount(e.target.value)}
 						placeholder='Enter amount...'
+						required
 					/>
 				</div>
 				<button className='btn-goal'>Add</button>
