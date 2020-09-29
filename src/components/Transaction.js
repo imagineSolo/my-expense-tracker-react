@@ -7,9 +7,9 @@ export const Transaction = ({ transaction }) => {
 
     return (
 			<li className={transaction.amount > 0 ? 'plus' : 'minus'}>
-				{transaction.text}
+				<span>{transaction.text}</span>
 				<span>{new Date(transaction.date).toLocaleDateString('pl-PL')}</span>
-			<span>{(transaction.amount * currentRate).toFixed(2)} {currentCurrency}</span>
+				<span>{(transaction.amount * currentRate).toFixed(2)} {currentCurrency}</span>
 				<button
 					onClick={() => deleteTransaction(transaction.id)}
 					className='delete-btn'

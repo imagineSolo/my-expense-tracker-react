@@ -46,6 +46,7 @@ export const Goal = () => {
 						value={text}
 						onChange={(e) => setText(e.target.value)}
 						placeholder='Goal name...'
+						maxLength='15'
 						required
 					/>
 				</div>
@@ -67,12 +68,19 @@ export const Goal = () => {
 						Current goal: <span>{goal.text}</span>
 					</div>
 					<div>
-						Amount to collect: <span>{amountToCollect > 0 ? amountToCollect : 0} {currentCurrency}</span>
+						Amount to collect:{' '}
+						<span>
+							{amountToCollect > 0 ? amountToCollect : 0} {currentCurrency}
+						</span>
 					</div>
 				</div>
-				<ProgressBar value={percentage > 0 ? percentage : 0} size={80} amount={amount}/>
+				<ProgressBar
+					value={percentage > 0 ? percentage : 0}
+					size={80}
+					amount={amount}
+				/>
 			</div>
-			{<Message percentage={percentage} amount={amount}/>}
+			{<Message percentage={percentage} amount={amount} />}
 		</div>
 	);
 };

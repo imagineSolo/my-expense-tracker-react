@@ -54,6 +54,7 @@ export const AddTransaction = () => {
 							value={text}
 							onChange={(e) => setText(e.target.value)}
 							placeholder='Enter text...'
+							maxLength='10'
 							required
 						/>
 					</div>
